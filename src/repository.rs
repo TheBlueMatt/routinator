@@ -582,7 +582,10 @@ impl Repository {
                 Ok(())
             });
             match route {
-                Ok(route) => routes.push(route),
+                Ok(route) => {
+                    info!("Got route {:?}", route);
+                    routes.push(route)
+                },
                 Err(_) => {
                     info!("{}: processing failed.", uri);
                 }
